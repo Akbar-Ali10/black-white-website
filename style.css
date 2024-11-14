@@ -1,0 +1,193 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Define light and dark theme colors */
+:root {
+    --primary-color: #edf2fc;
+    --secondary-color: #212121;
+    --accent-color: orangered;
+    --light-background: rgba(20, 224, 224, 0.425);
+    --dark-background: #121212;
+    --dark-text: #ffffff;
+}
+
+/* Light theme by default */
+body {
+    background-color: var(--light-background);
+    color: var(--secondary-color);
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Header styling */
+.header-logo h1 {
+    color: var(--accent-color);
+}
+
+.header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Navbar styles */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 0 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav ul li:hover {
+    color: var(--accent-color);
+    transition: all 0.7s;
+}
+
+/* Dark mode styles applied when .dark-mode class is added to body */
+body.dark-mode {
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+}
+
+.header-logo h1.dark-mode {
+    color: var(--primary-color);
+}
+
+/* Dark mode navbar colors */
+body.dark-mode nav ul li:hover {
+    color: var(--primary-color);
+}
+
+/* Toggle button styling */
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.5s;
+}
+
+.icon.dark-mode {
+    background-color: #333;
+}
+
+.icon i {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#dark-icon,
+#light-icon {
+    position: absolute;
+    font-size: 18px;
+    transition: opacity 0.5s;
+}
+
+/* Initially hide the sun icon */
+#light-icon {
+    right: 10px;
+    color: #111;
+    opacity: 0;
+}
+
+#dark-icon {
+    left: 10px;
+    color: black;
+}
+
+/* Display sun icon and hide moon icon in dark mode */
+body.dark-mode #dark-icon {
+    opacity: 0;
+}
+
+body.dark-mode #light-icon {
+    opacity: 1;
+    color: #fff;
+}
+
+/* Main section styling */
+.section-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.section-main h1 {
+    font-size: 40px;
+    animation: move 1.5s ease alternate-reverse forwards;
+
+}
+
+.section-main h1 span {
+    color: var(--accent-color);
+}
+
+.section-main p {
+    padding-top: 20px;
+    font-size: 17px;
+    animation: move 2.0s ease alternate-reverse forwards;
+
+}
+
+/* Button styling */
+.section-main button {
+    padding: 15px 30px;
+    background: #000;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    margin-top: 30px;
+    font-weight: bold;
+    transition: all 0.8s;
+    animation: move 2.5s ease alternate-reverse forwards;
+}
+
+button:hover {
+    color: black;
+    background-color: var(--accent-color);
+}
+
+/* Dark mode button hover */
+body.dark-mode button {
+    background: var(--secondary-color);
+    color: white;
+}
+
+body.dark-mode button:hover {
+    background-color: var(--accent-color);
+    color: black;
+}
+
+
+
+
+@keyframes move {
+    0%{
+        filter: blur(0px);
+        transform: translateX(20px);
+    }
+    100%{
+        filter: blur(100px);
+        transform: translateX(-200px);
+    }
+    
+}
